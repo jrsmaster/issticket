@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -51,17 +51,18 @@
 
         <div class="setorr">
             <label><b>Setor</b></label>  <br>
-            <input type="radio" name="Setor" value="inbound" id="Setor" ><label>Inbound</label>
+            <input type="radio" name="Setor" value="T1" id="Setor" ><label>T1</label>
+            <input type="radio" name="Setor" value="T2" id="Setor" ><label>T2</label>
             <input type="radio" name="Setor" value="Outbound" id="Setor"><label>Outbound</label>
             <h4>Selecione a barreira identificada</h4>
         </div>
 
         <div>
-             <input type="radio" name="Barreira" value="WorngASIN" id="Barreira"><label>Worg ASIN </label><br>
-             <input type="radio" name="Barreira" value="ColarASIM" id="Barreira"><label>Colar ASIM</label><br>
-            <input type="radio" name="Barreira" value="ImagemDescri" id="Barreira" ><label>Imagem Descrição</label><br>
-            <input type="radio" name="Barreira" value="MultEAN" id="Barreira" ><label>Multiplos EANS</label><br>
-            <input type="radio" name="Barreira" value="EANDirecMultASINs"id="Barreira"><label>EAN direcionando para Multiplos ASIN</label><br><br>
+             <input type="radio" name="Barreira" value="WorngASIN" id="Barreira"><label>Worng asin</label><br>
+             <input type="radio" name="Barreira" value="ColarASIM" id="Barreira"><label>Colar asin</label><br>
+            <input type="radio" name="Barreira" value="ImagemDescri" id="Barreira" ><label>Erro imagem descrição</label><br>
+            <input type="radio" name="Barreira" value="MultEAN" id="Barreira" ><label>Multiplos EANs</label><br>
+            <input type="radio" name="Barreira" value="EANDirecMultASINs"id="Barreira"><label>EAN direciona para multiplos ASINs</label><br><br>
         </div>
         
         <div class="mb-2">
@@ -71,6 +72,16 @@
                 class="mx-3 form-control"
                 id="ASIN"
                 name="ASIN"
+            />
+        
+        </div>
+        <div class="mb-2">
+            <label class="mx-3" for="EAN">EAN:</label><br>
+            <input
+                type="text"
+                class="mx-3 form-control"
+                id="EAN"
+                name="EAN"
             />
         
         </div>
