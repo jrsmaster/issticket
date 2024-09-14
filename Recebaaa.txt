@@ -1,0 +1,102 @@
+Sub AutoRecebaaaaaaa()
+
+
+'Deve abrir o navegador pois ele utiliza uma aba
+'Este código faz o seguinte:
+'1. Ativa o Google Chrome.
+'2. Abre uma nova aba e navega até o site "XPTO".
+'3. Digita "31" e aperta Enter.
+'4. Digita "Estação de trabalho" e aperta Enter.
+'5. Digita "carrinho" e aperta Enter.
+'6. Digita "FRXxxx" e aperta Enter.
+'7. Copia cada código da coluna A do Excel, cola no navegador e aperta Enter.
+'8. Captura a tela (PrintScreen) e cola a imagem na célula ao lado do código.
+'9. Apaga o código da tela do navegador e repete para o próximo código.
+
+
+Dim ws As Worksheet
+    Dim cell As Range
+    Dim screenshot As Object
+    Dim pasteCell As Range
+    
+    ' Ativa o Google Chrome
+    AppActivate "Google Chrome"
+    
+    ' Aguarda um momento
+    Application.Wait Now + TimeValue("00:00:02")
+    
+    ' Navega para o site XPTO
+    Application.SendKeys "^t", True ' Abre uma nova aba
+    Application.SendKeys "http://www.xpto.com", True
+      Application.Wait Now + TimeValue("00:00:02")
+    Application.SendKeys "{ENTER}", True
+    
+    ' Aguarda o carregamento da página
+    Application.Wait Now + TimeValue("00:00:05")
+    
+    ' Digita o número 31 e aperta Enter
+    Application.SendKeys "31", True
+      Application.Wait Now + TimeValue("00:00:02")
+    Application.SendKeys "{ENTER}", True
+    
+    ' Aguarda um momento
+    Application.Wait Now + TimeValue("00:00:02")
+    
+    ' Digita o código zzzz e aperta Enter
+    Application.SendKeys "zzzz", True
+      Application.Wait Now + TimeValue("00:00:02")
+    Application.SendKeys "{ENTER}", True
+    
+    ' Aguarda um momento
+    Application.Wait Now + TimeValue("00:00:02")
+    
+    ' Digita o código carrinho e aperta Enter
+    Application.SendKeys "carrinho", True
+      Application.Wait Now + TimeValue("00:00:02")
+    Application.SendKeys "{ENTER}", True
+    
+    ' Aguarda um momento
+    Application.Wait Now + TimeValue("00:00:02")
+    
+    ' Digita o código FRXxxx e aperta Enter
+    Application.SendKeys "FRXxxx", True
+      Application.Wait Now + TimeValue("00:00:02")
+    Application.SendKeys "{ENTER}", True
+    
+    ' Aguarda um momento
+    Application.Wait Now + TimeValue("00:00:02")
+    
+    ' Define a planilha ativa
+    Set ws = ThisWorkbook.Sheets("Sheet1")
+    
+    ' Loop através dos códigos na coluna A
+    For Each cell In ws.Range("A2:A" & ws.Cells(ws.Rows.Count, "A").End(xlUp).Row)
+        ' Copia o código da célula
+        cell.Copy
+        
+        ' Cola o código no navegador e aperta Enter
+        Application.SendKeys "^v", True
+          Application.Wait Now + TimeValue("00:00:02")
+        Application.SendKeys "{ENTER}", True
+        
+        ' Aguarda um momento
+        Application.Wait Now + TimeValue("00:00:05")
+        
+        ' Captura a tela e cola no Excel
+        Application.SendKeys "{PRTSC}"
+          Application.Wait Now + TimeValue("00:00:02")
+        Set pasteCell = cell.Offset(0, 1)
+          Application.Wait Now + TimeValue("00:00:02")
+        pasteCell.Select
+          Application.Wait Now + TimeValue("00:00:02")
+        ActiveSheet.Paste
+        
+        ' Apaga o código da tela do navegador
+        Application.SendKeys "^a", True
+        Application.Wait Now + TimeValue("00:00:02")
+        Application.SendKeys "{DELETE}", True
+        
+        ' Aguarda um momento
+        Application.Wait Now + TimeValue("00:00:02")
+    Next cell
+End Sub
