@@ -1,7 +1,7 @@
 Sub AutoRecebaaaaaaa()
 
 
-'Deve abrir o navegador pois ele utiliza uma aba
+'Deve abrir o navegador pois ele utiliza uma aba, obs enter no send keys é "~"
 'Este código faz o seguinte:
 '1. Ativa o Google Chrome.
 '2. Abre uma nova aba e navega até o site "XPTO".
@@ -29,7 +29,7 @@ Dim ws As Worksheet
     Application.SendKeys "^t", True ' Abre uma nova aba
     Application.SendKeys "http://www.xpto.com", True
       Application.Wait Now + TimeValue("00:00:02")
-    Application.SendKeys "{ENTER}", True
+    Application.SendKeys "~", True
     
     ' Aguarda o carregamento da página
     Application.Wait Now + TimeValue("00:00:05")
